@@ -82,6 +82,7 @@ flutter:
     - lib/assets/Financial Insights.png
     - lib/assets/medlaunchinglogo.png
     - lib/assets/Posimage.png
+    - ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
