@@ -174,7 +174,8 @@ class NavigationDrawerWidget extends StatelessWidget {
                       Navigator.of(context).pop(); // Close the drawer
                       Navigator.of(context).pushReplacement(MaterialPageRoute(
                         builder: (context) =>
-                             Support(), // Navigate to the HomePage
+                            
+                             Support(),
                       ));
                     },
                   ),
