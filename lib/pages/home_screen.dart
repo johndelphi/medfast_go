@@ -52,24 +52,24 @@ class HomeScreen extends StatelessWidget {
           ],
         ),
         actions: [
-          // Add button
+          // notifications button
           IconButton(
             onPressed: () {
               // Handle add logic here
             },
             icon: Icon(
-              Icons.add,
+              Icons.notifications,
               color: Colors.white,
             ),
           ),
 
-          // Notifications button
+          // help button
           IconButton(
             onPressed: () {
               // Handle notification logic here
             },
             icon: Icon(
-              Icons.notifications,
+              Icons.help,
               color: Colors.white,
             ),
           ),
@@ -106,18 +106,18 @@ class HomeScreen extends StatelessWidget {
                       SizedBox(height: 16.0),
                       // Progress Indicators
                       _buildHorizontalProgressIndicators(
-                        'Current Sales',
+                        'Daily Sales',
                         70,
                         Colors.purple,
-                        'Target Sales',
+                        'Monthly Sales',
                         60,
                         Colors.orange,
                       ),
                       _buildHorizontalProgressIndicators(
-                        'New Sales',
+                        'Annual Sales',
                         40,
                         Colors.yellow,
-                        'Retarget Sales',
+                        'Target Sales',
                         80,
                         Colors.red,
                       ),
