@@ -85,73 +85,63 @@ class BarChart extends StatelessWidget {
     double maxRevenue = barData.map((data) => data.value).reduce((a, b) => a > b ? a : b);
     
     
-    return Stack(
-      alignment: Alignment.bottomCenter,
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.end,
       children: [
+        
+        
+        //Bars
         Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        crossAxisAlignment: CrossAxisAlignment.end,
-        children: barData.map((data) {
-          return Bar(
-            label: data.label,
-            value: data.value,
-            maxRevenue: maxRevenue,
-            color: Colors.lightGreen,
-          );
-        }).toList(),
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: barData.map((data) {
+            return Bar(
+              value: data.value, 
+              color: Colors.lightGreen, 
+              maxRevenue: maxRevenue
+            );
+          }).toList(),
+        ),
+
+        //X-Axis label
+        Container(
+          margin: const EdgeInsets.only(top: 8.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: barData.map((data) {
+              return Text(
+                data.label,
+                style: TextStyle(fontSize: 12.0),
+              );
+            }).toList(),
+          ),
+        ),
+
       
-      ),
-
-      //X-Axis label
-      Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: barData.map((data) {
-          return Text(
-            data.label,
-            style: TextStyle(fontSize: 12.0),
-          );
-        }).toList(),
-      ),
-
-      //Y-Axis label
-      Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text('0'),
-          Text((maxRevenue / 2).toStringAsFixed(0)),
-          Text(maxRevenue.toStringAsFixed(0)),
-        ],
-      ),
     ],
    );
   }
 }
 
 class Bar extends StatelessWidget {
-  final String label;
   final double value;
   final double maxRevenue;
   final Color color;
 
-  Bar({required this.label, required this.value,required this.color, required this.maxRevenue});
+  Bar({required this.value, required this.color, required this.maxRevenue});
 
   @override
   Widget build(BuildContext context) {
-
     double scaledValue = (value / maxRevenue) * 150.0;
-    return Column(
-      children: [
-        Text(label),
-        SizedBox(height: 8.0),
-        Container(
-          width: 20.0, // Adjust the width as needed
-          height: scaledValue,
-          color: color,
-        ),
-      ],
+    return Container(
+      width: 20.0, // Adjust the width as needed
+      height: scaledValue,
+      color: color,
     );
   }
 }
+
+
 
 class BarData {
   final String label;

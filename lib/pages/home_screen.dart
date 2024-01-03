@@ -5,6 +5,21 @@ import 'package:medfast_go/pages/widgets/circular_progress_indicator.dart';
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key});
 
+
+  //calculate methods
+  Future<double> calculateTotalRevenue() async {
+  double totalRevenue = 0;
+  // Assuming you have the monthly amounts in a variable named monthlyAmounts
+  List<double> monthlyAmounts = [10000, 20000, 15000, 25000, 18000, 22000, 30500, 28000, 35000, 32000, 28000, 40000];
+
+  for (double amount in monthlyAmounts) {
+    totalRevenue += amount;
+  }
+
+  return totalRevenue;
+}
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -132,12 +147,30 @@ class HomeScreen extends StatelessWidget {
                             ),
                           ),
 
-                          Text(
-                            'KSH \n 4,200,000',
-                            style: TextStyle(
-                              fontSize: 18.0,
-                              fontWeight: FontWeight.bold,
-                            ),
+                          
+                          //calculation of the monthly ammounts
+                          FutureBuilder<double>
+                          (
+                            future: calculateTotalRevenue(), 
+                            builder: (context, snapshot) {
+                              if (snapshot.hasData) {
+                                return Text(
+                                  'KSH \n ${snapshot.data!.toStringAsFixed(0)}',
+                                  style: TextStyle(
+                                    fontSize: 18.0,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                );
+                              } else {
+                                return Text(
+                                  'Loading...',
+                                  style: TextStyle(
+                                    fontSize: 18.0,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                );
+                              }
+                            }
                           ),
                           DropdownButton<String>(
                             items: <String>['2022', '2023', '2024', '2025', '2026', '2027']
