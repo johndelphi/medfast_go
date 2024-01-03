@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:medfast_go/bargraph/individual_bar.dart';
 import 'package:medfast_go/pages/widgets/circular_progress_indicator.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -153,6 +154,15 @@ class HomeScreen extends StatelessWidget {
                           ),
                         ],
                       ),
+
+                      //bar chart
+                      Container(
+                        height: 200,
+                        child: IndividualBar(
+                          x: 1, 
+                          monthlyAmounts: [10000, 20000, 15000, 25000, 18000, 22000, 30500, 28000, 35000, 32000, 28000, 40000],
+                        ),
+                      )
                     ],
                   ),
                 ),
