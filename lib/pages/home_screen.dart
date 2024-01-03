@@ -9,7 +9,7 @@ class HomeScreen extends StatelessWidget {
   //calculate methods
   Future<double> calculateTotalRevenue() async {
   double totalRevenue = 0;
-  // Assuming you have the monthly amounts in a variable named monthlyAmounts
+  
   List<double> monthlyAmounts = [10000, 20000, 15000, 25000, 18000, 22000, 30500, 28000, 35000, 32000, 28000, 40000];
 
   for (double amount in monthlyAmounts) {
