@@ -18,13 +18,15 @@ class _ProductsState extends State<Products> {
   final TextEditingController barcodeController = TextEditingController();
   final TextEditingController sellingPriceController = TextEditingController();
   final TextEditingController medicineNameController = TextEditingController();
-  final TextEditingController medicineDescriptionController = TextEditingController();
+  final TextEditingController medicineDescriptionController =
+      TextEditingController();
   final TextEditingController dosageFormController = TextEditingController();
   final TextEditingController strengthController = TextEditingController();
   final TextEditingController manufacturerController = TextEditingController();
   final TextEditingController categoryController = TextEditingController();
   final TextEditingController priceController = TextEditingController();
-  final TextEditingController manufactureDateController = TextEditingController();
+  final TextEditingController manufactureDateController =
+      TextEditingController();
   final TextEditingController expiryDateController = TextEditingController();
 
   List<Product> products = [];
@@ -66,13 +68,15 @@ class _ProductsState extends State<Products> {
 
   Route _createRoute(Product product) {
     return PageRouteBuilder(
-      pageBuilder: (context, animation, secondaryAnimation) => EditProductPage(product: product),
+      pageBuilder: (context, animation, secondaryAnimation) =>
+          EditProductPage(product: product),
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
         const begin = Offset(1.0, 0.0);
         const end = Offset.zero;
         const curve = Curves.ease;
 
-        var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+        var tween =
+            Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
         var offsetAnimation = animation.drive(tween);
 
         return SlideTransition(
@@ -85,7 +89,7 @@ class _ProductsState extends State<Products> {
 
   Widget _buildProductList() {
     if (products.isEmpty) {
-      return Center(
+      return const Center(
         child: Text(
           "No products added yet. Click the + button to add your first product.",
           style: TextStyle(fontSize: 18.0),
@@ -116,10 +120,10 @@ class _ProductsState extends State<Products> {
                         imageFile,
                         fit: BoxFit.cover,
                         errorBuilder: (context, error, stackTrace) {
-                          return Icon(Icons.error);
+                          return const Icon(Icons.error);
                         },
                       )
-                    : Placeholder(),
+                    : const Placeholder(),
               ),
               onTap: () => _navigateToEditProduct(product),
             ),
@@ -133,22 +137,22 @@ class _ProductsState extends State<Products> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Products'),
+        title: const Text('Products'),
         centerTitle: true,
-        backgroundColor: Color.fromRGBO(58, 205, 50, 1),
+        backgroundColor: const Color.fromRGBO(58, 205, 50, 1),
         leading: GestureDetector(
           onTap: () {
             Navigator.of(context).pushReplacement(
               MaterialPageRoute(
-                builder: (context) => HomePage(),
+                builder: (context) => const HomePage(),
               ),
             );
           },
-          child: Icon(Icons.arrow_back),
+          child: const Icon(Icons.arrow_back),
         ),
         actions: [
           IconButton(
-            icon: Icon(Icons.menu),
+            icon: const Icon(Icons.menu),
             onPressed: () {
               // Menu action
             },
@@ -160,8 +164,8 @@ class _ProductsState extends State<Products> {
           Container(
             width: double.infinity,
             height: 48,
-            margin: EdgeInsets.all(16),
-            padding: EdgeInsets.symmetric(horizontal: 16),
+            margin: const EdgeInsets.all(16),
+            padding: const EdgeInsets.symmetric(horizontal: 16),
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(24),
@@ -170,7 +174,7 @@ class _ProductsState extends State<Products> {
                   color: Colors.grey.withOpacity(0.5),
                   spreadRadius: 2,
                   blurRadius: 3,
-                  offset: Offset(0, 2),
+                  offset: const Offset(0, 2),
                 ),
               ],
             ),
@@ -180,7 +184,7 @@ class _ProductsState extends State<Products> {
                   child: TextField(
                     controller: searchController,
                     onChanged: (query) => _filterProducts(query),
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       border: InputBorder.none,
                       labelText: 'Search Products',
                       labelStyle: TextStyle(color: Colors.green),
@@ -189,7 +193,7 @@ class _ProductsState extends State<Products> {
                   ),
                 ),
                 IconButton(
-                  icon: Icon(Icons.qr_code_scanner),
+                  icon: const Icon(Icons.qr_code_scanner),
                   onPressed: () {
                     print("Retrieving product by barcode...");
                   },
@@ -204,8 +208,8 @@ class _ProductsState extends State<Products> {
         onPressed: () {
           _showProductForm(context);
         },
-        backgroundColor: Color.fromRGBO(58, 205, 50, 1),
-        child: Icon(Icons.add),
+        backgroundColor: const Color.fromRGBO(58, 205, 50, 1),
+        child: const Icon(Icons.add),
       ),
     );
   }
@@ -215,99 +219,102 @@ class _ProductsState extends State<Products> {
       context: context,
       isScrollControlled: true,
       builder: (BuildContext context) {
-         return Container(
-  color: Color.fromRGBO(126, 127, 179, 0.39),
-  child: Padding(
-    padding: const EdgeInsets.all(30.0),
-    child: Wrap(
-      alignment: WrapAlignment.center,
-      spacing: 10, // Adjust this value as needed for spacing between buttons
-      children: [
-        Material(
-          borderRadius: BorderRadius.circular(45),
-          elevation: 6,
-          child: InkWell(
-            onTap: () {
-              print("Retrieving product by barcode...");
-            },
-            child: Ink(
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [Colors.deepPurple, Colors.purpleAccent],
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
+        return Container(
+          color: const Color.fromRGBO(126, 127, 179, 0.39),
+          child: Padding(
+            padding: const EdgeInsets.all(30.0),
+            child: Wrap(
+              alignment: WrapAlignment.center,
+              spacing:
+                  10, // Adjust this value as needed for spacing between buttons
+              children: [
+                Material(
+                  borderRadius: BorderRadius.circular(45),
+                  elevation: 6,
+                  child: InkWell(
+                    onTap: () {
+                      print("Retrieving product by barcode...");
+                    },
+                    child: Ink(
+                      decoration: BoxDecoration(
+                        gradient: const LinearGradient(
+                          colors: [Colors.deepPurple, Colors.purpleAccent],
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                        ),
+                        borderRadius: BorderRadius.circular(45),
+                      ),
+                      padding: const EdgeInsets.all(30), // Reduced padding
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: <Widget>[
+                          Image.asset(
+                            'lib/assets/barcode_icon.png',
+                            width: 80, // Reduced size
+                            height: 80,
+                          ),
+                          const Text('Barcode',
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                                shadows: [
+                                  Shadow(
+                                    blurRadius: 2.0,
+                                    color: Colors.black26,
+                                    offset: Offset(1.0, 1.0),
+                                  ),
+                                ],
+                              ))
+                        ],
+                      ),
+                    ),
+                  ),
                 ),
-                borderRadius: BorderRadius.circular(45),
-              ),
-              padding: const EdgeInsets.all(30), // Reduced padding
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  Image.asset(
-                    'lib/assets/barcode_icon.png',
-                    width: 80, // Reduced size
-                    height: 80,
-                  ),
-                  const Text('Barcode', style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                    shadows: [
-                      Shadow(
-                        blurRadius: 2.0,
-                        color: Colors.black26,
-                        offset: Offset(1.0, 1.0),
+                Material(
+                  borderRadius: BorderRadius.circular(45),
+                  elevation: 6,
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.of(context).pushNamed('/productwithoutbarcode');
+                    },
+                    child: Ink(
+                      decoration: BoxDecoration(
+                        color: const Color.fromRGBO(58, 205, 50, 1),
+                        borderRadius: BorderRadius.circular(45),
                       ),
-                    ],
-                  ))
-                ],
-              ),
+                      padding: const EdgeInsets.all(30), // Reduced padding
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: <Widget>[
+                          Image.asset(
+                            'lib/assets/no_barcode_icon.png',
+                            width: 80, // Reduced size
+                            height: 80,
+                          ),
+                          const Text('No Barcode',
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                                shadows: [
+                                  Shadow(
+                                    blurRadius: 2.0,
+                                    color: Colors.black26,
+                                    offset: Offset(1.0, 1.0),
+                                  ),
+                                ],
+                              ))
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
-        ),
-        Material(
-          borderRadius: BorderRadius.circular(45),
-          elevation: 6,
-          child: InkWell(
-            onTap: () {
-              Navigator.of(context).pushNamed('/productwithoutbarcode');
-            },
-            child: Ink(
-              decoration: BoxDecoration(
-                color: Color.fromRGBO(58, 205, 50, 1),
-                borderRadius: BorderRadius.circular(45),
-              ),
-              padding: const EdgeInsets.all(30), // Reduced padding
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  Image.asset(
-                    'lib/assets/no_barcode_icon.png',
-                    width: 80, // Reduced size
-                    height: 80,
-                  ),
-                  const Text('No Barcode', style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                    shadows: [
-                      Shadow(
-                        blurRadius: 2.0,
-                        color: Colors.black26,
-                        offset: Offset(1.0, 1.0),
-                      ),
-                    ],
-                  ))
-                ],
-              ),
-            ),
-          ),
-        ),
-      ],
-    ),
-  ),
-);
+        );
       },
     );
   }
-} 
+}

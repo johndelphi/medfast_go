@@ -33,14 +33,20 @@ class Supplier extends StatelessWidget {
                     color: Colors.black)),
           ),
           SizedBox(height: 10.0),
-          Text("You haven't added any suppliers yet.",
-              style: TextStyle(fontSize: 20.0, color: Colors.black)),
+          Text(
+            "You haven't added any suppliers yet.",
+            style: TextStyle(fontSize: 20.0, color: Colors.black),
+          ),
           SizedBox(height: 10.0),
-          Text("Keep track of your suppliers by adding their details.",
-              style: TextStyle(fontSize: 20.0, color: Colors.black)),
+          Text(
+            "Keep track of your suppliers by adding their details.",
+            style: TextStyle(fontSize: 20.0, color: Colors.black),
+          ),
           SizedBox(height: 10.0),
-          Text('Tap on the + Icon below to add a new supplier.',
-              style: TextStyle(fontSize: 20.0, color: Colors.black)),
+          Text(
+            'Tap on the + Icon below to add a new supplier.',
+            style: TextStyle(fontSize: 20.0, color: Colors.black),
+          ),
         ],
       ),
     );
