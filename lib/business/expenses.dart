@@ -595,11 +595,7 @@ class _ExpensesState extends State<Expenses> {
         backgroundColor: const Color.fromRGBO(58, 205, 50, 1),
         leading: GestureDetector(
           onTap: () {
-            Navigator.of(context).pushReplacement(
-              MaterialPageRoute(
-                builder: (context) => const HomePage(),
-              ),
-            );
+            Navigator.of(context).pop();
           },
           child: const Icon(Icons.arrow_back),
         ),
